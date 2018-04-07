@@ -105,11 +105,11 @@ function searchHistory({ client, connection, date }) {
 }
 
 //Connect to the database, then we can handle the events
-r.connect({
-    host: dbHost,
-    port: dbPort,
-    db: dbDatabase
-}).then((connection) => {
+// r.connect({
+//     host: dbHost,
+//     port: dbPort,
+//     db: dbDatabase
+// }).then((connection) => {
     io.on('connection', (client) => {
         //New connections send to classroom "room"
         client.join('classroom');
@@ -148,7 +148,7 @@ r.connect({
             searchHistory({ client, connection, date });
         });
     });
-});
+// });
 
 server.listen(ioPort);
 console.log('Server listening on port', ioPort, '...');
